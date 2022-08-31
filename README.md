@@ -1,0 +1,21 @@
+# BDB2022 Week 6 Exercise
+
+For week 6, you will be developing a simple blockchain explorer for ETH and ERC20 transactions. You can either use mainnet or testnet. This will be an application of what you've learned for this week.
+
+## Setup
+1. Clone this repository by running `git clone https://github.com/sparklearnedtech/bdb2022-week6.git`.
+2. Create your own branch using this format (firstname-lastname), checkout, and make sure you are not on main branch.
+	```
+	git branch john-doe    // create branch using firstname-lastname format
+	git checkout john-doe  // checkout on newly created branch
+	git branch             // check and make sure you are currently on your john-doe branch, not main
+	```
+3. Run `npm install` to generate your `node_modules` folder and download all necessary packages.
+5. Then run `npm start` to check the web app and start coding.
+4. Once you're done, just message [@harveyjavier](https://github.com/harveyjavier) on Slack, and he will check your branch.
+
+## Sample Output
+
+![Demo](https://github.com/sparklearnedtech/bdb2022-week6/blob/main/src/images/sample-output.gif)
+
+_This is just an example. You can make it more creative!_
