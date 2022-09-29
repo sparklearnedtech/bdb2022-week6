@@ -82,7 +82,6 @@ function App() {
     </Container>
   )
 
-
   return(
     <Container>
       {status === '0' ?
