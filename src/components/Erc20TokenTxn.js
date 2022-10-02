@@ -4,7 +4,7 @@ import {Table} from 'react-bootstrap';
 
 const Erc20TokenTxn = props => {
 
-    const {ERC20Txn} = props
+    const {ERC20Txn} = props;
 
     return(
         

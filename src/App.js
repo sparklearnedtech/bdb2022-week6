@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react'
+
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import {Container, Row, Col, Form, FormControl, Button, Nav, Card, Spinner} from 'react-bootstrap';
+import { Container, Row, Col, Form, FormControl, Button, Nav, Card, Spinner } from 'react-bootstrap';
 import { configureWeb3 } from './blockchain-helper';
 import NormalTxn from './components/NormalTxn';
 import Erc20TokenTxn from './components/Erc20TokenTxn';
@@ -41,10 +41,10 @@ function App() {
 
 //-------Functions----------
 
-  const fetchNormalTxs = async (address) => {
-    window.web3 = configureWeb3(`https://ropsten.infura.io/v3/${process.env.REACT_APP_INFURA_AK}`);
+  const fetchNormalTxs = async () => {
+    window.web3 = configureWeb3(`https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_AK}`);
 
-    fetch(`https://api.etherscan.io/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10&sort="desc"&apikey=${process.env.REACT_APP_ETHERSCAN_AK}`)
+    await fetch(`https://api.etherscan.io/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10&sort="desc"&apikey=${process.env.REACT_APP_ETHERSCAN_AK}`)
     .then(res=>res.json())
     .then(result=>{
 
@@ -59,10 +59,10 @@ function App() {
     });
   }
 
-  const fetchERC20Txs = async (address) => {
+  const fetchERC20Txs = async () => {
     window.web3 = configureWeb3(`https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_AK}`);
     
-    fetch(`https://api.etherscan.io/api?module=account&action=tokentx&address=${address}&page=1&offset=100&startblock=0&endblock=99999999&sort=desc&apikey=${process.env.REACT_APP_ETHERSCAN_AK}`)
+   await fetch(`https://api.etherscan.io/api?module=account&action=tokentx&address=${address}&page=1&offset=100&startblock=0&endblock=99999999&sort=desc&apikey=${process.env.REACT_APP_ETHERSCAN_AK}`)
     .then(res=>res.json())
     .then(result=>{
 
@@ -108,7 +108,7 @@ function App() {
               onClick={()=> fetchNormalTxs(address) && fetchERC20Txs(address) && setLoading(true)}
               disabled={address === ''}
               >
-              search
+              Search
             </Button>
         </Form>
       </Row>
