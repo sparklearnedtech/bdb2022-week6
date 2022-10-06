@@ -43,7 +43,6 @@ function App() {
   const fetchNormalTxs = async () => {
 
     window.web3 = configureWeb3(`https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_AK}`);
-    console.log(window.web3);
 
     await fetch(`https://api.etherscan.io/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10&sort="desc"&apikey=${process.env.REACT_APP_ETHERSCAN_AK}`)
     .then(res=>res.json())
@@ -70,6 +69,8 @@ function App() {
 
       console.log(result.result);
       setERC20Txn(result.result);
+     // console.log(window.web3.utils.fromWei(result.result.[0].value, "ether"))
+
     })
     .catch(error=>{
 
