@@ -48,8 +48,6 @@ function App() {
     .then(res=>res.json())
     .then(result=>{
 
-      console.log(result.result);
-
       setTransactions(result.result);
       setStatus(result.status);
       setLoading(false);
@@ -67,7 +65,6 @@ function App() {
     .then(res=>res.json())
     .then(result=>{
 
-      console.log(result.result);
       setERC20Txn(result.result);
      // console.log(window.web3.utils.fromWei(result.result.[0].value, "ether"))
 
