@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #ffffff;
+  background-color: #21325b;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,4 +22,49 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 70px 70px;
+}
+.title {
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-size: 62px;
+  font-weight: 800;
+  line-height: 72px;
+  margin: 0 0 24px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.Search-box {
+  width: 70%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Table-box {
+  width: 90%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tablebox {
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 1);
+  margin-top: 20px;
+}
+
+.tab {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 50px;
 }
