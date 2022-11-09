@@ -1,26 +1,26 @@
-import React from 'react';
-import bdbLogo from './images/bdb.png';
+import { useEffect } from 'react';
+import BlockChainExplorer from "./pages/BlockchainExplorer";
 import './App.css';
+import BlockChainHelper from './utils/BlockChainHelper';
+import { contractAbi, gSrkContractAddress } from "./constants";
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-    };
-  }
+function App() {
+  useEffect(() => {
+    try {
+      BlockChainHelper.initializeWeb3();
+      if (window.web3.version) {
+        BlockChainHelper.initializeToken(contractAbi, gSrkContractAddress);
+      }
+    } catch (error) {
+      alert("Unable to initialize web3");
+    }
+  }, []);
 
-  componentWillMount() {
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={bdbLogo} className="App-logo" alt="logo" />
-        </header>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <BlockChainExplorer />
+    </div>
+  );
 }
 
 export default App;

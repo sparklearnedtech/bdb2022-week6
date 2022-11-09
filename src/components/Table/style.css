@@ -1,0 +1,25 @@
+table {
+  table-layout: fixed;
+  margin-bottom: 0 !important;
+}
+
+td {
+  text-align: center;
+}
+
+.content {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-entries {
+  text-align: left;
+  background-color: #f8ebcd !important;
+  color: #725002 !important;
+}
+
+td a {
+  text-decoration: none;
+}
