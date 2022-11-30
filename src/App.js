@@ -38,24 +38,27 @@ function App () {
     window.web3 = configureWeb3(`https://goerli.infura.io/v3/${process.env.REACT_APP_INFURA_AK}`)
   }, [])
   return (
-    <div>
+    <div className='app'>
       <h1>Goerli Explorer</h1>
-      <input 
-        value={address}
-        id="address"
-        name="address"
-        type="text"
-        placeholder="Search Address"
-        onChange={handleAddress}
-        required
-      />
-      <input
-        type="submit"
-        value="Get normal txs"
-        disabled={address === ""}
-        onClick={() => fetchNormalTxs(address)}
-      />
-      {/* <button onClick={() => fetchNormalTxs(address)}>Get normal txs</button> */}
+      <div className='app-input'>
+
+        <input 
+          value={address}
+          id="address"
+          name="address"
+          type="text"
+          placeholder="Search Address"
+          onChange={handleAddress}
+          required
+        />
+        <input
+          type="submit"
+          value="Get normal txs"
+          disabled={address === ""}
+          onClick={() => fetchNormalTxs(address)}
+        />
+      </div>
+      
       {txnArr && <table>
         <tr>
           <th>Txn Hash</th>
@@ -66,17 +69,17 @@ function App () {
           <th>Txn Fee</th>
         </tr>
         {txnArr && txnArr.map(txn => {
-        return (
-          <tr key={txn.blockHash}>
-            <td>{txn.blockHash}</td>
-            <td>{txn.blockNumber}</td>
-            <td>{txn.from}</td>
-            <td>{txn.to}</td>
-            <td>{txn.value}</td>
-            <td>{txn.gasPrice}</td>
-          </tr>
-        )
-      })}
+          return (
+            <tr key={txn.blockHash}>
+              <td>{txn.blockHash}</td>
+              <td>{txn.blockNumber}</td>
+              <td>{txn.from}</td>
+              <td>{txn.to}</td>
+              <td>{txn.value}</td>
+              <td>{txn.gasPrice}</td>
+            </tr>
+          )
+        })}
       </table>}
     </div>
   )
